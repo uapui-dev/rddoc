@@ -1,0 +1,42 @@
+#前端开发需要注意的问题#
+- 数据有效性判断，如$("#id")使用前需要判断是否有效；
+- json对象最后一个value后面不能有逗号，如：
+
+    ```
+    {
+        key1:value,
+        key2:value,
+    }
+    ```
+- 变量在使用前必须使用 var 申明，不要污染到全局。
+
+    ```
+        // bad
+        superPower = new SuperPower();
+        // good
+        var superPower = new SuperPower();
+    ```
+
+- 同一个作用域下的变量应当统一在 function 头部申明。
+
+    ```
+    // bad
+    function funA(arg) {
+        doSomething();
+        var a = 3;
+        if (condition) {
+            var b = 2;
+        }
+        var c = 1;
+    }
+    // good
+    function funA(arg) {
+        var a = 3;
+        var c = 1;
+        var b;
+        doSomething();
+        if (condition) {
+            b = 2;
+        }
+    }
+    ```
