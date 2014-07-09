@@ -1,0 +1,26 @@
+#错误
+ - **资源开闭**
+    - 数据库打开，不关闭
+    - 文件打开，不关闭
+    - socket打开，不关闭
+ - **空指针**
+    - 前端传递到后台的参数，不检查直接使用
+    - 使用一些Java库自带方法时，需要确保参数不为空，例如Collection.addAll()
+ - **其他**
+    - String比较需要使用equals代替"=="
+    - 包装类型比较需要使用equals或将其中一个转换为基本类型
+    - switch语句中没有break
+    - 不能直接将object[]转换为其他类型数组，例如String[]
+#性能
+ - **数据库原则**
+    - 使用尽量少查询次数，避免使用循环查询数据库
+ - **String类型拼接，使用StringBuffer/StringBuilder**
+ - **慎用静态变量（堆），优先使用局部变量（栈）**
+ - **利用库函数来实现功能**
+    - 数组复制：System.arrayCopy
+    - 建议使用Apache common包方法， 例如StringUtils.isNotBlank()，CollectionUtils.isNotEmpty()等
+#代码规范
+ - 注意空格问题，主要参见[Baidu Java代码规范][1]
+
+
+  [1]: http://styleguide.baidu.com/style/java/index.html
